@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="collectionsView"
+             x:Class="PrismBugTest.Views.CollectionView">
+    <ContentView.Content>
+        <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame>
+                         <Label Text="{Binding}"></Label>
+                         <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BindingContext.GoToDetailsPageCommand, Source={x:Reference collectionsView}}" CommandParameter="{Binding}"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                 </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentView.Content>
+</ContentView>
